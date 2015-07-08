@@ -1,0 +1,193 @@
+/*
+ *
+    COPYRIGHT LICENSE: This information contains sample code provided in source code form. You may copy, modify, and distribute
+    these sample programs in any form without payment to IBM® for the purposes of developing, using, marketing or distributing
+    application programs conforming to the application programming interface for the operating platform for which the sample code is written.
+    Notwithstanding anything to the contrary, IBM PROVIDES THE SAMPLE SOURCE CODE ON AN "AS IS" BASIS AND IBM DISCLAIMS ALL WARRANTIES,
+    EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY,
+    FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND ANY WARRANTY OR CONDITION OF NON-INFRINGEMENT. IBM SHALL NOT BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR OPERATION OF THE SAMPLE SOURCE CODE.
+    IBM HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS OR MODIFICATIONS TO THE SAMPLE SOURCE CODE.
+
+ */
+ 
+/*MobileFirst container div 
+#content {
+	height: 460px;
+	margin: 0 auto;
+	width: 320px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+}*/
+
+
+#AboutContent {
+	text-align: center;
+	color: #1670B7;
+	font-weight: bold;
+	text-shadow: 0 1px 1px #FFFFFF;
+	height: 100%;
+}
+
+/*
+#aboutMobileFirstTitle {
+	background: url("../images/worklight.png") no-repeat center center;
+	height: 120px;
+}
+
+#aboutMobileFirstText {
+	margin: 0 auto;
+	max-width: 260px;
+	width: 260px;
+}
+
+#aboutMobileFirstLink {
+	font-size: 22px;
+	margin: 43px auto 20px auto;
+	width: 144px;
+}
+*/
+
+.wl_ios7 .mblView { 
+	top: 20px; 
+}
+
+.feedListItem { 
+	line-height:18px;
+	height:auto;
+	
+	background: transparent url("../images/arrow.png") no-repeat 99% 50%;
+	border-bottom: 1px solid #bbb;
+	cursor: pointer;
+	display: block;
+	min-height: 40px;
+	padding: 0 25px 0 15px;
+}
+
+.pubDate {
+	font-size: 12px;
+	font-weight: normal;
+/*	color: #2F3E46; */
+}
+
+.feedTitle {
+/*	color: #2F3E46; */
+	margin-bottom: 5px; 
+}
+
+.feedDetail {
+	padding: 15px;
+	background-color: white;
+}
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: text;
+}
+
+body {
+	font: normal 14px / normal Helvetica, Arial, sans-serif;
+}
+
+#content {
+	background-color: #fff;
+	color: #505c75;
+	margin: 0 auto;
+	min-height: 300px;
+}
+
+#aboutTab {
+	background: #fff; /* Old browsers */
+	background-image: -moz-linear-gradient(center top , #cfcfcf, #ffffff); /* FF3.6+ */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#cfcfcf), to(#ffffff)); /* Chrome,Safari4+ */
+	background-image: -webkit-linear-gradient(top, #cfcfcf, #ffffff); /* Chrome10+,Safari5.1+ */
+	background-image: -o-linear-gradient(top, #cfcfcf, #ffffff); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #cfcfcf, #ffffff); /* IE10+ */
+	background-image: linear-gradient(top, #cfcfcf, #ffffff); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cfcfcf', endColorstr='#ffffff',GradientType=0); /* IE6-9 */
+	text-align: center;
+	width: auto;
+}
+
+#aboutMobileFirstTitle {
+	background: transparent url("../images/IBM_logo.png") no-repeat scroll 50% 30px;
+	height: 80px;
+	text-indent: -9999px;
+	width: 100%;
+}
+
+#aboutMobileFirstProductName {
+	color: #000000;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 260px;
+	text-align: center;
+	text-shadow: 0 1px 1px #fff;
+	width: 260px;
+}
+
+#aboutMobileFirstVersion {
+	color: #000000;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 18px;
+	margin: 8px auto;
+	max-width: 260px;
+	text-align: center;
+	text-shadow: 0 1px 1px #fff;
+	width: 260px;
+}
+
+#aboutMobileFirstText {
+	color: #000000;
+	font-weight: bold;
+	line-height: 18px;
+	margin: 0 auto;
+	max-width: 260px;
+	text-align: center;
+	text-shadow: 0 1px 1px #fff;
+	width: 260px;
+}
+
+#aboutMobileFirstLink {
+	color: #204984;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 32px auto 0px auto;
+	text-shadow: 0 1px 1px #fff;
+	width: 180px;
+}
+
+#loadDiv {
+	display:table;
+	font-size: 20px;
+	text-align:center;
+	background-color:white;
+	
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	z-index:999;
+}
+
+#loadDiv span {
+	display:table-cell;
+	vertical-align:middle;
+}
+
+#homeNav {
+	padding-left: 0 !important;
+}
+
+#FeedDeatilView{
+	background-color:white;
+}

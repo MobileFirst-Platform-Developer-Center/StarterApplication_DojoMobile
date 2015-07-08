@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<!--
+    COPYRIGHT LICENSE: This information contains sample code provided in source code form. You may copy, modify, and distribute
+    these sample programs in any form without payment to IBM® for the purposes of developing, using, marketing or distributing
+    application programs conforming to the application programming interface for the operating platform for which the sample code is written.
+    Notwithstanding anything to the contrary, IBM PROVIDES THE SAMPLE SOURCE CODE ON AN "AS IS" BASIS AND IBM DISCLAIMS ALL WARRANTIES,
+    EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OR CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY,
+    FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND ANY WARRANTY OR CONDITION OF NON-INFRINGEMENT. IBM SHALL NOT BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR OPERATION OF THE SAMPLE SOURCE CODE.
+    IBM HAS NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS OR MODIFICATIONS TO THE SAMPLE SOURCE CODE.
+  -->
+
+<project name="common" basedir=".">
+
+	<taskdef resource="net/sf/antcontrib/antlib.xml" format="xml" 
+		classpath="../../buildtools/anttasks/ant-contrib-1.0b3.jar" />
+
+	<dirname property="imported.basedir" file="${ant.file.common}"/>	
+	<property file="${imported.basedir}/common.properties"></property>
+	
+	<property name="build.dojo.src" value="${build}/dojo/src"/>
+	<property name="build.dojo.optimized" value="${build}/dojo/optimized"/>
+	<property name="build.dojo.buildScrptsDir" value="${build.dojo.src}/util/buildscripts"/>
+	
+	<!-- figure out which build script file to use based under given environment -->
+	<condition property="build.dojo.buildScript" value="build.bat">
+		<os family="windows" />
+	</condition>
+	<condition property="build.dojo.buildScript" value="build.sh">
+		<not>
+			<os family="windows" />
+		</not>
+	</condition>
+
+	<target name="clean" description="Clean temp folder for dojo build.">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="init" description="Set up build environment.">
+		<tstamp />
+		<echo message="Creating directory ${build} ${imported.basedir}/common.properties"/>
+		<mkdir dir="${build}" />
+	</target>
+
+	<target name="extractDojoFromZip" description="Get dojo from ZIP file specified path through -dojo.srcZip=/some/path/to/dojo_src.zip">
+		<echo message="Uncompress the ${dojo.srcZip} to ${build.dojo.src}" />
+		<unzip src="${dojo.srcZip}" dest="${build.dojo.src}" />
+	</target>
+
+	<target name="fixBuildScriptsDir" description="Fix text content and file system previlige of build scripts folder under certain environment">
+        <fixcrlf srcdir="${build.dojo.buildScrptsDir}" eol="unix" includes="*.sh"/>
+		<chmod perm="a+x" dir="${build.dojo.buildScrptsDir}" includes="*.sh" />
+	</target>
+
+	<target name="buildDojo" description="Run dojo build according to the given profile and other build options.">
+		<property name="buildOptions" value="profile=${build.dojo.profile} dojoConfig=${build.dojo.dojoConfig} basePath=../../" />
+				
+		<exec executable="./${build.dojo.buildScript}" dir="${build.dojo.buildScrptsDir}" osfamily="unix">
+			<arg line="${buildOptions}" />
+		</exec>
+		<exec executable="cmd" dir="${build.dojo.buildScrptsDir}" osfamily="windows">
+			<arg line="/c ${build.dojo.buildScript} ${buildOptions}" />
+		</exec>
+	</target>
+
+</project>

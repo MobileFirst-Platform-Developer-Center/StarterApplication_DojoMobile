@@ -58,3 +58,6 @@ derby.log
 
 .jazzignore
 /pom.xml
+apps/StarterApplication_DojoMobile/android/native
+apps/StarterApplication_DojoMobile/iphone/native
+*.backup.zip

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><tns:loginConfiguration xmlns:tns="http://www.worklight.com/auth/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<tns:loginConfiguration xmlns:tns="http://www.worklight.com/auth/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <!--
     COPYRIGHT LICENSE: This information contains sample code provided in source code form. You may copy, modify, and distribute
     these sample programs in any form without payment to IBM® for the purposes of developing, using, marketing or distributing
@@ -86,13 +87,13 @@
     	</realm -->
     </realms>
     <loginModules>
-        <loginModule name="StrongDummy">
+        <loginModule expirationInSeconds="-1" name="StrongDummy">
             <className>com.worklight.core.auth.ext.NonValidatingLoginModule</className>
         </loginModule>
-        <loginModule name="requireLogin">
+        <loginModule expirationInSeconds="-1" name="requireLogin">
             <className>com.worklight.core.auth.ext.SingleIdentityLoginModule</className>
         </loginModule>
-        <loginModule name="rejectAll">
+        <loginModule expirationInSeconds="-1" name="rejectAll">
             <className>com.worklight.core.auth.ext.RejectingLoginModule</className>
         </loginModule>
         <!-- For websphere -->
